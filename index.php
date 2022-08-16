@@ -1,40 +1,47 @@
-<?php
- $db = new PDO("mysql:host=localhost;dbname=kulacino",'root','');
- $query = $db->query('select * from murid');
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>fufufu</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+  </head>
+  <body>
+  <?php 
+$db = new PDO("mysql:host=localhost;dbname=fumafu", 'root', '');
+$query = $db->query('select * from murid');
 
 ?>
- <button style="background-color:47B5FF;">
-    <a href="tambah.php" style="color:white;">Insert</a>
- </button>
- <br>
- <table border="1" cellpadding="10" cellspacing="0">
+<a href="tambah.php" class="btn btn-primary mb-3">Insert</a>
+<table class="table table-dark table-borderless container text-center">
+    <thead>
     <tr>
-        <th>Id</th>
-        <th>Nama</th>
-        <th>Kelas</th>
-        <th>Aksi</th>
+        <th scope="col">Id</th>
+        <th scope="col">Nama</th>
+        <th scope="col">Kelas</th>
+        <th scope="col">Aksi</th>
     </tr>
-<?php $i=1 ?>
- <?php
- while ($data = $query->fetch() ) :?>
+    </thead>
+    <tbody>
+    <?php
+    while ($data = $query->fetch()):?>
     <tr>
-        <td><?= $i ?></td>
-        <td><?= $data['nama']?></td>
-        <td><?= $data['kelas']?></td>
-        <td>
 
-        <button style="background-color:#839AA8;">
-        <a href="edit.php?id=<?= $data['id']; ?>" style="color:white; ;">
-            Update
-        </a>
-        </button>
-        <button style="background-color:#820000;">
-        <a href="proseshapus.php?id=<?= $data['id']; ?>" style="color:white;padding:2px;border-radius:3px">
-            Delete
-        </a>
-        </button>
+        
+        <td><?= $data['id']?></td>
+        
+        <td><?= $data['nama']?></td>
+
+        <td><?= $data['kelas']?></td>
+        
+        <td>
+        <a href="edit.php?id=<?= $data['id']; ?>" class="btn btn-light"> Update </a>
+        
+        <a href="prodelete.php?id=<?= $data['id']; ?>" class="btn btn-danger"> Delete </a>
         </td>
     </tr>
-    <?php $i++; ?>
-<?php endwhile ?>
+    <?php endwhile ?>
+    </tbody>
 </table>
+  </body>
+</html>
