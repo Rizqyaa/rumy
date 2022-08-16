@@ -12,7 +12,7 @@ $db = new PDO("mysql:host=localhost;dbname=fumafu", 'root', '');
 $query = $db->query('select * from murid');
 
 ?>
-<a href="tambah.php" class="btn btn-primary mb-3">Insert</a>
+<a href="tambah.php" class="btn btn-outline-secondary mb-3 ">Insert</a>
 <table class="table table-dark table-borderless container text-center">
     <thead>
     <tr>
